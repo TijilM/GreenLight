@@ -1,5 +1,5 @@
 import styles from "../Style/about.module.css"
-import myimg from "../Assets/about.jpg"
+import myimg from "../Assets/about1.jpg"
 function About() {
     return (
         <section id="about">
