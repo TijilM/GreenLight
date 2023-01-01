@@ -4,8 +4,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../Assets/blue2.png");
-  min-height: 100vh;
+  background-image: url("../Assets/green.png");
+  height: 100vh;
 }
 
 .heading {

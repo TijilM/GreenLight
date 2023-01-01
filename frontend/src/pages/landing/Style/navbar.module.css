@@ -24,7 +24,7 @@
     height: max(50px, 8vw);
     background-color: transparent;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     z-index: 1;
     width: 100%;
 }
