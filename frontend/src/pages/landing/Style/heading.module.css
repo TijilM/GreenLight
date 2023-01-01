@@ -1,7 +1,29 @@
-.container{
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+
+.container {
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("../Assets/blue2.png");
   min-height: 100vh;
+}
+
+.heading {
+  text-decoration: none;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 75px;
+  color: rgb(72, 64, 86);
+  padding-bottom: 1rem;
+}
+.headingcontainer{
+  padding-top: 1.5rem;
+  padding-left: 2rem;
+}
+.subheading{
+  text-decoration: none;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(72, 64, 86);
 }

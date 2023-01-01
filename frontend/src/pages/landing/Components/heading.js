@@ -4,7 +4,14 @@ function Heading() {
     return (
       <div className={styles.container}>
         <Navbar/>
-        hey
+        <div className={styles.headingcontainer}>
+        <div className={styles.heading}>
+           Project Name
+        </div>
+        <div className={styles.subheading}>
+          save water save earth some tagline here
+          </div>
+        </div>
       </div>
     );
   }
