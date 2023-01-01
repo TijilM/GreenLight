@@ -6,7 +6,7 @@ function Navbar() {
         <div className={styles.navbarContainer}>
           <div className={styles.navMenu}>
             <div>
-              <a className={styles.navLinks} href="#whyccsid">
+              <a className={styles.navLinks} href="#about">
                 Home
               </a>
             </div>
@@ -16,12 +16,12 @@ function Navbar() {
               </a>
             </div>
             <div>
-              <a className={styles.navLinks} href="#carouselid">
+              <a className={styles.navLinks} href="#about">
                 About Us
               </a>
             </div>
             <div>
-              <a className={styles.navLinks} href="#carouselid">
+              <a className={styles.navLinks} href="#contact">
                 Contact Us
               </a>
             </div>
