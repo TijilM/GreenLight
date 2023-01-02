@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+
+.container{
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+}
+.heading {
+    text-decoration: none;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 40px;
+    color: rgb(72, 64, 86);
+    padding-bottom: 1rem;
+  }
+.formContainer{
+    text-align: center;
+    width: 30vw;
+    margin:auto
+}
+.inputBox{
+    background-color: rgb(202, 201, 202);
+    padding-top: 1rem;
+    border-radius: 3rem;
+    border: 0px;
+    opacity: 0.6;
+    padding-bottom: 1rem;
+    width:100%
+}
+.inputBox::placeholder{
+    padding-left: 2rem;
+    color:black;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 17px;
+}
+.inputBoxContainer{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.btn{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    border-radius: 2rem;
+    width: 90%;
+    border: 0px;
+    color:black;
+    font-size: 17px;
+    
+}
+.btnContainer{
+    padding-top: 1.5rem;
+}
+.btntext{
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.subContainer{
+    padding: 2rem;
+    width:40wv;
+}
+.myimg{
+    height: 45vh;
+    width:30vw;
+}
