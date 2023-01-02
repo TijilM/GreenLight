@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import User, Room
+from .serializers import RoomSerializer
 from django.contrib.auth.models import auth
 from django.core.mail import send_mail
 from django.conf import settings
@@ -11,6 +12,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authtoken.models import Token
+
 
 import cv2
 import numpy as np
@@ -21,88 +24,75 @@ import wget
 import random,string
 
 
-def login(request):
-    if request.user.is_authenticated:
-        return redirect("/")
-    if request.method=="POST":
-        print("here")
-        email=request.POST['email']
-        password=request.POST['password']
-        user=auth.authenticate(email=email, password=password)
-        if user is not None:
-            auth.login(request, user)
-            # return render(request,'home2.html',{'email':email})
-            return redirect('/')
-        else:
-            print("no")
-            messages.add_message(request, messages.ERROR, "Wrong username or password!")
-            return render(request,'login.html')
-    else:
-        return render(request,'login.html')  
-    # return render(request, 'login.html')
 
-@login_required(login_url='/login')
-def logout(request):
-    if request.user.is_anonymous:
-        return redirect('/login')
-    auth.logout(request)
-    return redirect('/login')
+# @login_required(login_url='/login')
+# def liveCam(request, event, type):
+#     return render(request, 'app/liveCam.html', {'event': event, 'type': type})
 
-@login_required(login_url='/login')
-def home(request):
-    # for i in room.objects.all():
-    # data={}
-    # for room in Room.objects.all():
-    #     data[room.name]=room.cam_url
-    data=Room.objects.all()
-    # for room in Room.objects.all():
-    #     d={}
-    #     d['name']=room.name
-    #     d['cam']=room.cam_url
-        # data.append(d)
-    # print(data)
+
+# def otp(request):
+#     if (request.method=="POST"):
+#         email=request.POST['email']
+#         user=User.objects.filter(email=email).first()
+#         if (user is not None):
+#             otp=''.join(random.choice(string.digits) for _ in range(7))
+#             user.otp=otp
+#             user.save()
+#             sub="OTP for Password reset"
+#             message="Your OTP to reset password is "+otp
+#             from_email= settings.EMAIL_HOST_USER
+#             send_mail(sub, message, from_email, [email], fail_silently=False)
+#             return redirect('/reset_password')
+#         else:
+#             messages.add_message(request, messages.ERROR, "User does not exist!")
+#             return render(request, 'otp.html')
+#     return render(request, 'otp.html')
+
+# def reset_password(request):
+#     if (request.method=="POST"):
+#         otp=request.POST['otp']
+#         password=request.POST['password']
+#         user=User.objects.filter(otp=otp).first()
+#         if (user is not None):
+#             user.set_password(password)
+#             user.save()
+#             return redirect('/login')
+#         else:
+#             messages.add_message(request, messages.ERROR, "OTP is incorrect!")
+#             return render(request, 'reset_password.html')
+#     return render(request, 'reset.html')
+
+class login(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
         
-    return render(request, 'home2.html', {'data':data})
+        user = authenticate(request, email=email, password=password)
 
+        if user is None:
+            return Response({'error': 'Invalid Credentials'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        token = Token.objects.get_or_create(user=user)
 
-@login_required(login_url='/login')
-def liveCam(request, event, type):
-    return render(request, 'app/liveCam.html', {'event': event, 'type': type})
+        data = {
+            'key': token[0].key,
+            'email': user.email,
+        }
 
+        return Response(data, status=status.HTTP_200_OK)
+    
+    
+    
+class logout(APIView):
+    permission_classes = [IsAuthenticated,]
 
-def otp(request):
-    if (request.method=="POST"):
-        email=request.POST['email']
-        user=User.objects.filter(email=email).first()
-        if (user is not None):
-            otp=''.join(random.choice(string.digits) for _ in range(7))
-            user.otp=otp
-            user.save()
-            sub="OTP for Password reset"
-            message="Your OTP to reset password is "+otp
-            from_email= settings.EMAIL_HOST_USER
-            send_mail(sub, message, from_email, [email], fail_silently=False)
-            return redirect('/reset_password')
-        else:
-            messages.add_message(request, messages.ERROR, "User does not exist!")
-            return render(request, 'otp.html')
-    return render(request, 'otp.html')
-
-def reset_password(request):
-    if (request.method=="POST"):
-        otp=request.POST['otp']
-        password=request.POST['password']
-        user=User.objects.filter(otp=otp).first()
-        if (user is not None):
-            user.set_password(password)
-            user.save()
-            return redirect('/login')
-        else:
-            messages.add_message(request, messages.ERROR, "OTP is incorrect!")
-            return render(request, 'reset_password.html')
-    return render(request, 'reset.html')
+    def post(self, request):
+        token = Token.objects.get(user=request.user)
+        token.delete()
+        return Response(status=status.HTTP_200_OK)
 
 class check_status(APIView):
+    permission_classes = [IsAuthenticated,]
     def get(self, request):
         data={"room":[],"status":[]}
         for room in Room.objects.all():
@@ -120,6 +110,14 @@ class check_status(APIView):
         print(data)
             
         return Response(data, status=status.HTTP_200_OK)    
+    
+class show_rooms(APIView):
+    permission_classes = [IsAuthenticated,]
+    def get(self, request):
+        query_set=Room.objects.all()
+        serializer = RoomSerializer(query_set, many=True)
+            
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 
 
