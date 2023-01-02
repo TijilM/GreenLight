@@ -5,13 +5,13 @@ function Navbar() {
         <nav>
         <div className={styles.navbarContainer}>
           <div className={styles.navMenu}>
-            <div>
-              <a className={styles.navLinks} href="#about">
+            {/* <div>
+              <a className={styles.navLinks} href="Home">
                 Home
               </a>
-            </div>
+            </div> */}
             <div>
-              <a className={styles.navLinks} href="#whyccsid">
+              <a className={styles.navLinks} href="/login">
                 Login
               </a>
             </div>

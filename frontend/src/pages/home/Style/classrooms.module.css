@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+
+.container{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.monitorHeading{
+    font-family: "Montserrat";
+    font-weight: 500;
+    color: rgb(72, 64, 86);
+}
+.monitorPara{
+    font-family: "Montserrat";
+    color: rgb(72,64,86);
+}
+.classrooms{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    align-items: center;
+}
+.classroom{
+    display: inline-block;
+}

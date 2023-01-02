@@ -101,7 +101,7 @@ function Login() {
                 {
                     loading && 
                     <button type="submit" className={styles.btnContainer} disabled>
-                        <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
+                        <FontAwesomeIcon  icon={faSpinner}  className={styles.btntext}/>
                     </button>
                 }
             </div>
