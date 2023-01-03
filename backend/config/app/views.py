@@ -99,7 +99,7 @@ class check_status(APIView):
             cap=cv2.VideoCapture(room.cam_url)
             success, img = cap.read()
             cap.release()
-            if (not gen(room.cam_url,img)) and light(room.cam_url,img):
+            if (not gen(room.cam_url,img)) and light(room.cam_url,img,room.threshold):
                 room.status=True
                 
             else:
@@ -119,6 +119,41 @@ class show_rooms(APIView):
             
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+
+class add_room(APIView):
+    permission_classes = [IsAuthenticated,]
+    def post(self,request):
+        print("hello")
+        room_name=request.data.get('room_name')
+        cam_url=request.data.get('cam_url')
+        cap=cv2.VideoCapture(cam_url)
+        _, img1 = cap.read()
+        cap.release()
+        time.sleep(1)
+        cap=cv2.VideoCapture(cam_url)
+        _, img2 = cap.read()
+        cap.release()
+        time.sleep(1)
+        cap=cv2.VideoCapture(cam_url)
+        __, img2 = cap.read()
+        cap.release()
+        time.sleep(1)
+        cap=cv2.VideoCapture(cam_url)
+        ___, img3 = cap.read()
+        cap.release()
+        time.sleep(1)
+        cap=cv2.VideoCapture(cam_url)
+        ____, img4 = cap.read()
+        cap.release()
+        time.sleep(1)
+        cap=cv2.VideoCapture(cam_url)
+        _____, img5 = cap.read()
+        cap.release()
+        print(np.mean(img1),np.mean(img2),np.mean(img3),np.mean(img4),np.mean(img5))
+        threshold=min(np.mean(img1),np.mean(img2),np.mean(img3),np.mean(img4),np.mean(img5))
+        room = Room.objects.create(name=room_name,cam_url=cam_url,threshold=threshold);
+        room.save()
+        return Response(status=status.HTTP_200_OK)
 
 
 def gen(url,img):
@@ -173,7 +208,7 @@ def gen(url,img):
     else:
         return False
     
-def light(url,img):
+def light(url,img,thrshld):
     def img_estim(img, thrshld):
         print(np.mean(img))
         is_light = np.mean(img) > thrshld
@@ -184,7 +219,7 @@ def light(url,img):
 
     # success, img = cap.read()
     # cap.release()
-    if (img_estim(img, 120)):
+    if (img_estim(img, thrshld)):
         return True
     else:
         return False

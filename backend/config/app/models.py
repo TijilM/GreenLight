@@ -35,6 +35,7 @@ class User(AbstractBaseUser):
 class Room(models.Model):
     name=models.CharField(max_length=100)
     cam_url=models.CharField(max_length=100)
+    threshold=models.IntegerField(default=120)
     status=models.BooleanField(default=False)
     
     def __str__(self):
