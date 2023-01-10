@@ -28,7 +28,7 @@
     width:100%
 }
 .inputBox::placeholder{
-    padding-left: 2rem;
+    padding-left: 0rem;
     color:black;
     font-family: "Montserrat";
     font-weight: 500;
@@ -38,25 +38,46 @@
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
 }
+input[type=text]:focus {
+    border: 3px solid #555;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
 .btn{
     padding-top:0.5rem;
     padding-bottom:0.5rem;
     border-radius: 2rem;
     width: 90%;
     border: 0px;
-    color:black;
+    color:#555;
     font-size: 17px;
     
 }
 .btnContainer{
     padding-top: 1.5rem;
 }
+
 .btntext{
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 17px;
 }
-
 .subContainer{
     padding: 2rem;
     width:40wv;

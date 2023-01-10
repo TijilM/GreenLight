@@ -35,7 +35,7 @@ function Login() {
             if (!response.data.error) {
               console.log(response.data)
               authCtx.login(response.data.key)
-              navigate('/', {replace: true})
+              navigate('/home', {replace: true})
 
               setPassword("");
               setEmail("");
@@ -100,7 +100,7 @@ function Login() {
                 
                 {
                     loading && 
-                    <button type="submit" className={styles.btnContainer} disabled>
+                    <button type="submit" className={styles.btn} disabled>
                         <FontAwesomeIcon  icon={faSpinner}  className={styles.btntext}/>
                     </button>
                 }
