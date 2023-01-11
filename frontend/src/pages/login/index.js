@@ -9,7 +9,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { api_url } from "../../config";
 
-const url = api_url + "auth/login/";
+const url = api_url + "login/";
 
 function Login() {
   const navigate = useNavigate();

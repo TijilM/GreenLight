@@ -66,6 +66,8 @@ class login(APIView):
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
+        print(email,password)
+        print()
         
         user = authenticate(request, email=email, password=password)
 
@@ -80,7 +82,7 @@ class login(APIView):
         }
 
         return Response(data, status=status.HTTP_200_OK)
-    
+
     
     
 class logout(APIView):
