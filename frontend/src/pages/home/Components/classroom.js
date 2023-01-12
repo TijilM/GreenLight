@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import styles from "../Style/classroom.module.css"
 export default function classroom(props) {
   return (
+    
     <>
-    {props.classData.isLightOn ?
+    {props.classroom.isLightOn ?
   
     <div className={styles.classRed}>
         <div className={styles.classData}>
-            <p>{props.classData.name}  </p>
+            <p>{props.classroom.name}  </p>
         </div>
         <div className={styles.classData}>
             <p>  Status : On</p>
@@ -23,7 +24,7 @@ export default function classroom(props) {
     :
     <div className={styles.classBlue}>
     <div className={styles.classData}>
-        <p>{props.classData.name}  </p>
+        <p>{props.classroom.name}  </p>
     </div>
     <div className={styles.classData}>
         <p  >Status : Off</p>
