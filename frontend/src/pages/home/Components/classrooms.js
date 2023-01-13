@@ -4,84 +4,77 @@ import styles from "../Style/classrooms.module.css"
 import Classroom from "./classroom"
 
 function Classrooms() {
-    const classRooms = [{
-        name: "LT101",
-        isLightOn: false,
-    },
-    {
-        name: "LT102",
-        isLightOn: false,
-    },
-    {
-        name: "LT103",
-        isLightOn: false,
-    },
-    {
-        name: "LT201",
-        isLightOn: false,
-    },
-    {
-        name: "LT202",
-        isLightOn: false,
-    },
-    {
-        name: "LT203",
-        isLightOn: false,
-    },
-    {
-        name: "LT301",
-        isLightOn: false,
-    },
-    {
-        name: "LT302",
-        isLightOn: false,
-    },
-    {
-        name: "LT303",
-        isLightOn: false,
-    },
-    {
-        name: "LT401",
-        isLightOn: false,
-    },
-    {
-        name: "LT402",
-        isLightOn: false,
-    },
-    {
-        name: "LT403",
-        isLightOn: false,
-    },
-    ]
-    const [color, setColor] = useState([]);
-    var [me, setMe] = useState([true]);
-    const fetchData = () => {
-        return fetch("https://run.mocky.io/v3/477360e2-57f4-4bba-958a-94e869f7eeb1")
-            .then((response) => response.json())
-            .then(function (data) {
-                // This is the JSON from our response
-                console.log(data);
-                // console.log(data.room[0]);
-                const n = data.room.length
-                console.log(n)
-                for (let i = 0; i < n; i++) {
-                    if (data.room[i] === "false")
-                        setMe(true);
-                    else
-                        setMe(false);
-                }
-
-            });
+    class myclassRooms {
+        constructor(name, cam_url) {
+            this.name = name;
+            this.cam_url=cam_url;
+            this.isLightOn=true
+        }
     }
+    
+    // let classRooms = [{
+    //     name:"ffjgj",
+    //     cam_url:"",
+    //     isLightOn:"false"
+
+    // },]
+    // const [classRooms, setTheArray] = useState([]);
+    const [classRooms, setMyArray] = useState([]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            fetchData();
-        }, 5000);
+        fetch("https://run.mocky.io/v3/f6ca00d3-c012-448d-b738-6148833d4293")
+        .then((response) => response.json())
+        .then(function (data) {
+            var m = data.length;
+            for (var i = 0; i < m; i++) {
+                let iclass = new myclassRooms(data[i].name,data[i].cam_url);
+                // console.log(iclass)
+                // setTheArray(classRooms=>[...classRooms, iclass]);
+                // setTheArray(classRooms => [...classRooms, {currentOrNewKey: iclass}]);
+                setMyArray(classRooms => [...classRooms, iclass]);
+                // console.log(classRooms[i+1].name)
+            }
+            
+        })
+        
+       }, []);
+
+    
+    
+   
+    // const fetchData = () => {
+    //     return fetch("https://run.mocky.io/v3/477360e2-57f4-4bba-958a-94e869f7eeb1")
+    //         .then((response) => response.json())
+    //         .then(function (data) {
+    //             // This is the JSON from our response
+    //             console.log(data);
+    //             // console.log(data.room[0]);
+    //             n = data.room.length
+    //             console.log(n)
+    //             sArray = []
+    //             nArray = []
+    //             for (var i = 0; i < data.room.length; i++) {
+    //                 sArray.push(data.status[i]);
+    //                 nArray.push(data.room[i]);
+    //                 setMe(data.status[i])
+    //             }
+    //         })
+            
+    // }
+    
+    
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         fetchData();
+    //     }, 15000);
+    // }, [])
+      useEffect(() => {
+        
     }, [])
 
 
-   
+
 
     return (
         <div className={styles.container}>
@@ -97,20 +90,20 @@ function Classrooms() {
                         }}
                     />
                     <p className={styles.monitorPara}>Here is a list of all the classrooms. Their color depicts the status of the lights in the respective classroom:</p>
-                    {/* <h1>Counter: {counter}</h1> */}
+    
                 </center>
 
             </div>
             <div className={styles.classes}>
-                {/* LT101-3 */}
                 <div className={styles.classrooms}>
-                    {classRooms.length === 0 ? "No Todos Left" :
+                    {classRooms.length === 1 ? "No Todos Left" :
                         classRooms.map(classroom => {
                             return (
                                 <div className={styles.class}  >
-                                    <Classroom classroom={classroom}/>
+                                    <Classroom classroom={classRooms} />
+                                    
                                 </div>
-                                )
+                            )
                         })
                     }
                 </div>
