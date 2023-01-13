@@ -15,9 +15,9 @@ function About() {
           }}
         />
         <div className={styles.text}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia debitis hic, molestias quae facere qui itaque sed assumenda cumque vero, quasi incidunt ex fuga culpa eaque impedit aperiam ipsum nulla!
+        Our Team believes in the efficient and judicious use of resources,hence we developed the idea to bring GreenLight into existence. GreenLight simplifies the problem of electricty loss that is caused by leaving the lights on in an unused room.
         <br/><br/>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis similique odit cupiditate! Cupiditate, repellat quos quod iusto libero consequuntur accusantium consectetur minima, est officia itaque non, odit dolore cum amet!
+        GreenLight uses a CNN-based detection model that recogizes whether or not a room is empty and has the light turned on using human body recognition.Our system simplifies the problem of both pinpoiting the exact room and electrcity loss. It display the status of each and every room as well the camera feed to cross check the data displayed on the website.  
         </div>
         <div>
             <img src={myimg} alt="an image" className={styles.myimg}/>

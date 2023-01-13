@@ -6,10 +6,10 @@ function Heading() {
         <Navbar/>
         <div className={styles.headingcontainer}>
         <div className={styles.heading}>
-           Project Name
+           GreenLight
         </div>
         <div className={styles.subheading}>
-          save water save earth some tagline here
+          Saving Electricity By Using A CNN-based Detection Model.
           </div>
         </div>
       </div>
