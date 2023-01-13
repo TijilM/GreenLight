@@ -6,7 +6,7 @@ function Heading() {
         <Navbar/>
         <div className={styles.headingcontainer}>
         <div className={styles.heading}>
-           GreenLight
+          GreenLight
         </div>
         <div className={styles.subheading}>
           Saving Electricity By Using A CNN-based Detection Model.

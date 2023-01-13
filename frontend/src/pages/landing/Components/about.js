@@ -17,7 +17,7 @@ function About() {
         <div className={styles.text}>
         Our Team believes in the efficient and judicious use of resources,hence we developed the idea to bring GreenLight into existence. GreenLight simplifies the problem of electricty loss that is caused by leaving the lights on in an unused room.
         <br/><br/>
-        GreenLight uses a CNN-based detection model that recogizes whether or not a room is empty and has the light turned on using human body recognition.Our system simplifies the problem of both pinpoiting the exact room and electrcity loss. It display the status of each and every room as well the camera feed to cross check the data displayed on the website.  
+        GreenLight uses a CNN-based detection model that recogizes whether or not a room is empty and has the light turned on using human body recognition.<br></br><br></br>Our system simplifies the problem of both pinpoiting the exact room and electrcity loss.It displays the status of each and every room as well the camera feed to cross check the data displayed on the website.  
         </div>
         <div>
             <img src={myimg} alt="an image" className={styles.myimg}/>

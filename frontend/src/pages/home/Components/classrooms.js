@@ -41,6 +41,11 @@ function Classrooms() {
         
     }, []);
     return (
+        <>
+        <div className={styles.logout}>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <a className={styles.logoutLink} href="/login">Logout</a>
+        </div>
         <div className={styles.container}>
             <div className={styles.monitorHead} >
                 <center><h1 className={styles.monitorHeading}>GreenLight Monitor System</h1>
@@ -70,6 +75,7 @@ function Classrooms() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 export default Classrooms;

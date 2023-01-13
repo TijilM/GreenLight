@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
 
+.logout{
+    position: fixed;
+    top: 4rem;
+    left:3rem;
+    display: inline-block;
+    border-radius: 5rem;
+    box-shadow: 1px 1px 5px gray;
+    padding: 1rem 3rem;
+    transition:0.25s;
+}
+.logout:hover{
+    box-shadow: 3px 3px 5px gray;
+    transform: scale(1.1);
+}
+.logoutLink{
+    text-decoration: none;
+    color: #58565f;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 0rem;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.045em;
+    text-align: center;
+}
 .container{
     margin-top: 5rem;
     margin-bottom: 5rem;
