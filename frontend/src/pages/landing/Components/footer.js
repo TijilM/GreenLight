@@ -16,15 +16,15 @@ const Footer = () => (
         <hr className={styles.fHrStyle}></hr>
       
         <div className={styles.fLink}>
-          <a  href="">> Info</a>
+          <a  href=""> Info</a>
         </div>
 
         <div className={styles.fLink}>
-          <a  href="">> GitHub Repository</a>
+          <a  href=""> GitHub Repository</a>
         </div>
 
         <div className={styles.fLink}>
-          <a  href="">> Power Loss Data</a>
+          <a  href=""> Power Loss Data</a>
         </div>
       </div>
 
@@ -33,30 +33,30 @@ const Footer = () => (
         <hr className={styles.fHrStyle}></hr>
         <div className={styles.fContact}>
             <div className={styles.pNo}>
-                Ph No. :
+                Ph No. : 271-9876
             </div>
             <div className={styles.pNo}>
-              <p>+91 6969696969 | Chandravo</p>
-              <p>+91 6696969699 | Tijil</p>
-              <p>+91 2212331714 | Avirat</p>
+              <p>+91 123456789 | Chandravo</p>
+              <p>+91 987654321 | Tijil</p>
+              <p>+91 143276598 | Avirat</p>
           </div>
         </div>
         <div className={styles.fContact}>
             <div className={styles.pNo}>
-                Email :
+                Email : greenlight@gmail.com
             </div>
             <div className={styles.pNo}>
               <br></br>
-              <p>cbhattu@lmaoskull.thapar.edu | Chandravo</p>
-              <p>exampleemail@lmaoskull.thapar.edu | Tijil</p>
-              <p>somerandomemail@lmaoskull.thapar.edu | Avirat</p>
+              <p>chandravo@thapar.edu| Chandravo</p>
+              <p>tijil@thapar.edu | Tijil</p>
+              <p>avirat@thapar.edu | Avirat</p>
           </div>
         </div>
       </div>
 
     </div>
     <center><div className={styles.finisher}>
-        Made With ReactJS & Django
+        Made With ReactJS & Django Rest Framework
       </div></center>
   </div>
   </section>
