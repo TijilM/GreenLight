@@ -94,12 +94,30 @@ class logout(APIView):
         return Response(status=status.HTTP_200_OK)
 
 class check_status(APIView):
-    permission_classes = [IsAuthenticated,]
+    
+    # def get(self, request):
+    #     data={"room":[],"status":[]}
+    #     for room in Room.objects.all():
+    #         cap=cv2.VideoCapture(room.cam_url)
+    #         success, img = cap.read()
+    #         cap.release()
+    #         if (not gen(room.cam_url,img)) and light(room.cam_url,img,room.threshold):
+    #             room.status=True
+                
+    #         else:
+    #             room.status=False
+    #         room.save()
+    #         data["room"]+=[room.name]
+    #         data["status"]+=[room.status]
+    #     print(data)
+            
+    #     return Response(data, status=status.HTTP_200_OK)    
     def get(self, request):
-        data={"room":[],"status":[]}
+        data=[]
         for room in Room.objects.all():
+            d={}
             cap=cv2.VideoCapture(room.cam_url)
-            success, img = cap.read()
+            _, img = cap.read()
             cap.release()
             if (not gen(room.cam_url,img)) and light(room.cam_url,img,room.threshold):
                 room.status=True
@@ -107,8 +125,10 @@ class check_status(APIView):
             else:
                 room.status=False
             room.save()
-            data["room"]+=[room.name]
-            data["status"]+=[room.status]
+            d["name"]=room.name
+            d["cam_url"]=room.cam_url
+            d["status"]=room.status
+            data+=[d]
         print(data)
             
         return Response(data, status=status.HTTP_200_OK)    

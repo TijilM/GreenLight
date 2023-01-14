@@ -20,7 +20,7 @@ function Classrooms() {
         const interval = setInterval(() => {
             if (effectRan.current === false) {
                 const fetchData = () => {
-                    return fetch("https://run.mocky.io/v3/f8285463-7b6c-48d2-9ca3-56201bd19f8e", { method: "GET" }
+                    return fetch("http://127.0.0.1:8000/check_status/", { method: "GET" }
                     )
                         .then(res => {
                             return res.json();
@@ -40,7 +40,7 @@ function Classrooms() {
             return () => {
                 effectRan.current = true;
             }
-        }, 3000);
+        }, 10000);
 
     }, []);
     const authCtx = useContext(AuthContext)
