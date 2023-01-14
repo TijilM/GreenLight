@@ -9,7 +9,7 @@ function Heading() {
           GreenLight
         </div>
         <div className={styles.subheading}>
-          Saving Electricity By Using A CNN-based Detection Model.
+          Saving Electricity By Using <br/> A CNN-based Detection Model.
           </div>
         </div>
       </div>
