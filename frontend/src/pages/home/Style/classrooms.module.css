@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
 
 .logout{
-    position: fixed;
+    position: relative;
     top: 4rem;
-    left:3rem;
+    left:103rem;
     display: inline-block;
-    border-radius: 5rem;
+    border-radius: 2rem;
     box-shadow: 1px 1px 5px gray;
-    padding: 1rem 3rem;
+    padding: 0.75rem 3rem;
     transition:0.25s;
 }
 .logout:hover{
@@ -30,8 +30,7 @@
 }
 .addRoom{
     position: relative;
-    /* top: 4rem; */
-    left:3rem;
+    margin-top: 4rem;
     display: inline-block;
     border-radius: 1rem;
     box-shadow: 1px 1px 5px gray;
@@ -41,6 +40,10 @@
     margin-bottom: 3rem;
     background-color: green;
 
+}
+.addRoom a{
+    color:white;
+    text-decoration: none;
 }
 .addRoom:hover{
     background-color: rgb(4, 176, 4);
