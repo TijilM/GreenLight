@@ -18,9 +18,7 @@ export default function classroom(props) {
                     </div>
                     <div className={styles.classData}>
                         <div className={styles.iconContainer}>
-                            <button>
-                                <img src={camera} style={{ height: "1rem", width: "30px" }} />
-                            </button>
+                           <FontAwesomeIcon icon={faCamera} size="2x" beat/>
                         </div>
                     </div>
 
@@ -34,9 +32,9 @@ export default function classroom(props) {
                         <p  >Status : Off</p>
                     </div>
                     <div className={styles.classData}>
-                        <button>
-                            <img src={camera} style={{ height: "1rem", width: "30px", }} />
-                        </button>
+                        <a href={props.classroom.cam_url}>
+                            <FontAwesomeIcon icon={faCamera} size="2x" />
+                        </a>
                     </div>
 
 
