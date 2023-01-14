@@ -63,9 +63,6 @@ function Classrooms() {
                 </center>
 
             </div>
-            <div className={styles.addRoom}>
-                <a className={styles.addRoomLink}>Add Room +</a>
-            </div>
             <div className={styles.classes}>
                 <div className={styles.classrooms}>
                     {classRooms.length === 0 ? "No Todos Left" :
@@ -77,6 +74,11 @@ function Classrooms() {
                     }
                 </div>
             </div>
+            <center>
+            <div className={styles.addRoom}>
+                <a className={styles.addRoomLink} href="#">Add Room +</a>
+            </div>
+            </center>
         </div>
         </>
     )
