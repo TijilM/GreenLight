@@ -77,16 +77,19 @@ function Classrooms() {
                 </div>
                 <center >
                     <div className={styles.btnContainer}>
-                        
-                    <div className={styles.addRoom}>
-                        <a className={styles.addRoomLink} href="#">Add Room +</a>
-                    </div>
-                    <div className={styles.logout}>
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
-                        <a className={styles.logoutLink} >
-                            <Link onClick={authCtx.logout} to="/" style={{color:'grey'}} >LOGOUT</Link>
-                        </a>
-                    </div>
+
+                        <div className={styles.addRoom}>
+                            <a className={styles.addRoomLink} href="#">Add Room +</a>
+                        </div>
+                        <div className={styles.logout}>
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            <a className={styles.logoutLink} >
+                                <Link onClick={authCtx.logout} to="/" style={{ color: 'grey' }} >LOGOUT</Link>
+                            </a>
+                        </div>
+                        <div className={styles.addRoom}>
+                            <a className={styles.addRoomLink} href="#">Delete Room -</a>
+                        </div>
                     </div>
                 </center>
             </div>
