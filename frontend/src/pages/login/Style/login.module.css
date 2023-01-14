@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
-
+.flexCont{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: azure;
+}
 .container{
-    /* display: flex; */
+    display: flex;
+    box-shadow: 2px 2px 5px gray;
+    background-color: white;
+    padding: 4rem;
+    border-radius: 3rem;
     /* justify-content: center; */
     text-align: center;
 }
@@ -14,6 +25,7 @@
     padding-bottom: 1rem;
   }
 .formContainer{
+    max-width: 350px;
     text-align: center;
     width: 30vw;
     margin:auto

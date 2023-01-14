@@ -57,58 +57,60 @@ function Login() {
     }
   };
   return (
-    <div className={styles.container}>
-      <div className={styles.subContainer}>
-        <h1 className={styles.heading}>Login Now!</h1>
-        <form
-          action=""
-          onSubmit={submitForm}
-          className={styles.formContainer}
-        >
-          <div className={styles.inputBoxContainer}>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              autoComplete="off"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email "
-              className={styles.inputBox}
-            />
-          </div>
-          <br />
-          <div className={styles.inputBoxContainer}>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              autoComplete="off"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              className={styles.inputBox}
-            />
-          </div>
-          <div className={styles.btnContainer} >
-            {
-              !loading &&
-              <button type="submit" className={styles.btn}>
-                <div className={styles.btntext}>Submit</div>
-              </button>
-            }
+    <div className={styles.flexCont}>
+      <div className={styles.container}>
+        <div className={styles.subContainer}>
+          <h1 className={styles.heading}>Login Now!</h1>
+          <form
+            action=""
+            onSubmit={submitForm}
+            className={styles.formContainer}
+          >
+            <div className={styles.inputBoxContainer}>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email "
+                className={styles.inputBox}
+              />
+            </div>
+            <br />
+            <div className={styles.inputBoxContainer}>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                autoComplete="off"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                className={styles.inputBox}
+              />
+            </div>
+            <div className={styles.btnContainer} >
+              {
+                !loading &&
+                <button type="submit" className={styles.btn}>
+                  <div className={styles.btntext}>Submit</div>
+                </button>
+              }
 
-            {
-              loading &&
-              <button type="submit" className={styles.btn} disabled>
-                <FontAwesomeIcon icon={faSpinner} className={styles.btntext} />
-              </button>
-            }
-          </div>
-        </form>
-      </div>
-      <div >
-        <img src={myimg} className={styles.myimg} />
+              {
+                loading &&
+                <button type="submit" className={styles.btn} disabled>
+                  <FontAwesomeIcon icon={faSpinner} className={styles.btntext} />
+                </button>
+              }
+            </div>
+          </form>
+        </div>
+        <div className={styles.loginImg}>
+          <img src={myimg} className={styles.myimg} />
+        </div>
       </div>
     </div>
   );

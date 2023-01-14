@@ -43,7 +43,7 @@ const Footer = () => (
         </div>
         <div className={styles.fContact}>
             <div className={styles.pNo}>
-                Email : greenlight@gmail.com
+                Email : 
             </div>
             <div className={styles.pNo}>
               <br></br>
