@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import { CLOSING } from 'ws';
 import styles from "../Style/classrooms.module.css"
 import Classroom from "./classroom"
+import AuthContext from "../../../store/auth-context"
+import { Link } from "react-router-dom";
 
 function Classrooms() {
     class myclassRooms {
@@ -40,11 +42,14 @@ function Classrooms() {
         }},5000);
         
     }, []);
+    const authCtx = useContext(AuthContext)
     return (
         <>
         <div className={styles.logout}>
             <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <a className={styles.logoutLink} href="/login">Logout</a>
+            <a className={styles.logoutLink} >
+            <Link  onClick={authCtx.logout} to="/"  >LOGOUT</Link> 
+            </a>
         </div>
         <div className={styles.container}>
             <div className={styles.monitorHead} >
