@@ -1,22 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
-
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
 .logout{
+    
     position: relative;
-    top: 4rem;
-    left:103rem;
+    /* margin-top: 4rem; */
     display: inline-block;
-    border-radius: 2rem;
-    box-shadow: 1px 1px 5px gray;
-    padding: 0.75rem 3rem;
-    transition:0.25s;
+    border-radius: 1rem;
+    /* box-shadow: 1px 1px 5px gray; */
+    padding: 1rem 3rem;
+    transition:0.5s;
+    color: rgb(38, 141, 45);
+    /* margin-bottom: 3rem; */
+    margin : 1rem;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(227, 27, 27);
 }
 .logout:hover{
-    box-shadow: 3px 3px 5px gray;
+    /* box-shadow: 3px 3px 5px gray; */
     transform: scale(1.1);
 }
 .logoutLink{
     text-decoration: none;
-    color: #58565f;
+    color: #ffffff;
     display: flex;
     align-items: center;
     height: 100%;
@@ -28,25 +37,31 @@
     letter-spacing: 0.045em;
     text-align: center;
 }
+
 .addRoom{
     position: relative;
     margin-top: 4rem;
     display: inline-block;
     border-radius: 1rem;
-    box-shadow: 1px 1px 5px gray;
-    padding: 1rem 3rem;
+    /* box-shadow: 1px 1px 5px gray; */
+    padding: 1rem 2.5rem;
     transition:0.5s;
-    color: white;
+    color: grey;
     margin-bottom: 3rem;
-    background-color: green;
+    margin : 1rem;
+    border:3px solid green;
+    font-size: 20px;
+    /* background-color: green; */
+    /* background-color: rgb(4, 176, 4); */
 
 }
 .addRoom a{
-    color:white;
+    color:grey;
     text-decoration: none;
 }
 .addRoom:hover{
-    background-color: rgb(4, 176, 4);
+    
+    transform: scale(1.1);
 }
 .container{
     margin-top: 5rem;
